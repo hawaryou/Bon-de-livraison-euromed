@@ -1,6 +1,6 @@
 // Configuration du Bon de livraison EuroMed.
 // Les notices/protocoles sont stockés dans un dépôt GitHub PUBLIC.
-window.GOOGLE_APPS_SCRIPT_URL = 'COLLER_ICI_URL_APPS_SCRIPT';
+window.GOOGLE_APPS_SCRIPT_URL = 'https://github.com/hawaryou/bon-livraison-documents';
 
 // Adresse EuroMed qui reçoit TOUS les bons de livraison.
 window.EUROMED_EMAIL = 'valentineuromed@gmail.com';
