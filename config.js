@@ -7,7 +7,7 @@ window.EUROMED_EMAIL = 'valentineuromed@gmail.com';
 
 // Dépôt GitHub contenant les notices/protocoles.
 // Exemple : https://github.com/euromed/bon-livraison-documents
-window.GITHUB_OWNER = 'A_REMPLACER';
+window.GITHUB_OWNER = 'hawaryou';
 window.GITHUB_REPO = 'bon-livraison-documents';
 window.GITHUB_BRANCH = 'main';
-window.GITHUB_DOCUMENTS_PATH = 'documents';
+window.GITHUB_DOCUMENTS_PATH = 'protocolenotice';
