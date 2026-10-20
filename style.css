@@ -85,3 +85,23 @@ html[data-theme="light"] body input,html[data-theme="light"] body select,html[da
 html[data-theme="light"] body button:not(.theme-toggle){background:#e8f4fb!important;color:#111827!important;border-color:#9bbdd0!important}
 html[data-theme="light"] body .theme-toggle{color:#f8fafc!important;background:linear-gradient(135deg,#123b58,#30245c)!important;border-color:#48d8f0!important}
 html[data-theme="light"] body a.hub-menu{color:#fff!important;background:linear-gradient(135deg,#078fc4,#5946df)!important}
+
+
+/* Thème global sombre/clair des documents EuroMed */
+html[data-theme="dark"]{color-scheme:dark;background:#06152b}
+html[data-theme="dark"] body{background:radial-gradient(ellipse at top,#12334d 0,#07182a 55%,#04101e 100%)!important;color:#eef6ff!important}
+html[data-theme="dark"] body .page{background:#0c2033!important;color:#eef6ff!important;border-color:#24465f!important;box-shadow:0 12px 38px #0005!important}
+html[data-theme="dark"] body .header,html[data-theme="dark"] body .card,html[data-theme="dark"] body .recipient-card,html[data-theme="dark"] body .delivery-card,html[data-theme="dark"] body .delivery-info,html[data-theme="dark"] body .receipt,html[data-theme="dark"] body .documents-card,html[data-theme="dark"] body .section-card,html[data-theme="dark"] body .protocol-card{background:#102a40!important;color:#eef6ff!important;border-color:#2d526d!important}
+html[data-theme="dark"] body label,html[data-theme="dark"] body p,html[data-theme="dark"] body h1,html[data-theme="dark"] body h2,html[data-theme="dark"] body h3,html[data-theme="dark"] body .document-ref,html[data-theme="dark"] body .subtitle,html[data-theme="dark"] body .muted,html[data-theme="dark"] body .hint,html[data-theme="dark"] body .coords{color:#d9e9f5!important}
+html[data-theme="dark"] body input:not([type=checkbox]):not([type=radio]),html[data-theme="dark"] body select,html[data-theme="dark"] body textarea{background:#071a2b!important;color:#f8fbff!important;border-color:#42647b!important}
+html[data-theme="dark"] body input::placeholder,html[data-theme="dark"] body textarea::placeholder{color:#a9c0d1!important;opacity:1}
+html[data-theme="dark"] body .section-title,html[data-theme="dark"] body .section-head,html[data-theme="dark"] body .hub-menu{color:#fff!important}
+html[data-theme="dark"] body .date-box{background:#153b52!important;color:#eafaff!important;border-color:#31677f!important}
+html[data-theme="light"]{color-scheme:light}
+html[data-theme="light"] body{background:linear-gradient(180deg,#eaf5f8,#f8fafc 50%,#eef4f7)!important;color:#111827!important}
+html[data-theme="light"] body .page{background:#fff!important;color:#111827!important;border-color:#cbd5e1!important}
+html[data-theme="light"] body .header,html[data-theme="light"] body .card,html[data-theme="light"] body .recipient-card,html[data-theme="light"] body .delivery-card,html[data-theme="light"] body .delivery-info,html[data-theme="light"] body .receipt,html[data-theme="light"] body .documents-card,html[data-theme="light"] body .section-card,html[data-theme="light"] body .protocol-card{background:#fff!important;color:#111827!important;border-color:#cbd5e1!important}
+html[data-theme="light"] body label,html[data-theme="light"] body p,html[data-theme="light"] body h1,html[data-theme="light"] body h2,html[data-theme="light"] body h3,html[data-theme="light"] body .document-ref,html[data-theme="light"] body .subtitle,html[data-theme="light"] body .muted,html[data-theme="light"] body .hint,html[data-theme="light"] body .coords{color:#263b4a!important}
+html[data-theme="light"] body input:not([type=checkbox]):not([type=radio]),html[data-theme="light"] body select,html[data-theme="light"] body textarea{background:#fff!important;color:#111827!important;border-color:#94a3b8!important}
+html[data-theme="light"] body .section-title{color:#fff!important;background:linear-gradient(90deg,#07577f,#087db5)!important}
+html[data-theme="light"] body .theme-toggle{color:#fff!important;background:linear-gradient(135deg,#123b58,#30245c)!important}
