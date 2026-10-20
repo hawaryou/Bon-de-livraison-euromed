@@ -74,3 +74,14 @@
 @media print {
   .hub-menu { display: none !important; }
 }
+
+/* EuroMed theme switch: consistent light/dark modes */
+.theme-toggle{position:fixed;z-index:10050;top:12px;right:12px;display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:10px 14px;border:1px solid #48d8f0;border-radius:999px;background:linear-gradient(135deg,#123b58,#30245c);color:#f4fbff;font:700 14px Arial,Helvetica,sans-serif;box-shadow:0 6px 18px #0003;cursor:pointer;touch-action:manipulation}
+.theme-toggle:focus-visible{outline:3px solid #fbbf24;outline-offset:3px}
+@media(max-width:760px){.theme-toggle{top:calc(8px + env(safe-area-inset-top,0px));right:8px;min-height:44px;padding:9px 11px;font-size:13px}}
+html[data-theme="light"] body{background:#f8fafc!important;color:#111827!important}
+html[data-theme="light"] body main,html[data-theme="light"] body main *,html[data-theme="light"] body header,html[data-theme="light"] body header *,html[data-theme="light"] body section,html[data-theme="light"] body section *,html[data-theme="light"] body form,html[data-theme="light"] body form *,html[data-theme="light"] body article,html[data-theme="light"] body article *,html[data-theme="light"] body aside,html[data-theme="light"] body aside *{color:#111827!important;background:#fff!important;background-image:none!important;text-shadow:none!important}
+html[data-theme="light"] body input,html[data-theme="light"] body select,html[data-theme="light"] body textarea{background:#fff!important;color:#111827!important;border-color:#94a3b8!important}
+html[data-theme="light"] body button:not(.theme-toggle){background:#e8f4fb!important;color:#111827!important;border-color:#9bbdd0!important}
+html[data-theme="light"] body .theme-toggle{color:#f8fafc!important;background:linear-gradient(135deg,#123b58,#30245c)!important;border-color:#48d8f0!important}
+html[data-theme="light"] body a.hub-menu{color:#fff!important;background:linear-gradient(135deg,#078fc4,#5946df)!important}
