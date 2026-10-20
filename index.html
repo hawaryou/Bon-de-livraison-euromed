@@ -11,6 +11,15 @@
 <script src="config.js"></script>
 </head>
 <body>
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Passer en mode clair" aria-pressed="false"><span aria-hidden="true">☀️</span><span id="themeToggleLabel">Mode clair</span></button>
+<script>
+(function(){
+ var root=document.documentElement,key='euromed-maintenance-theme',button=document.getElementById('themeToggle'),label=document.getElementById('themeToggleLabel');
+ function apply(theme){theme=theme==='light'?'light':'dark';root.setAttribute('data-theme',theme);if(button){button.setAttribute('aria-pressed',String(theme==='light'));button.setAttribute('aria-label',theme==='dark'?'Passer en mode clair':'Passer en mode sombre');}if(label){label.textContent=theme==='dark'?'Mode clair':'Mode sombre';}var icon=button&&button.querySelector('[aria-hidden="true"]');if(icon)icon.textContent=theme==='dark'?'☀️':'🌙';}
+ var saved=null;try{saved=localStorage.getItem(key)}catch(e){}apply(saved==='light'?'light':'dark');
+ if(button)button.addEventListener('click',function(){var next=root.getAttribute('data-theme')==='dark'?'light':'dark';apply(next);try{localStorage.setItem(key,next)}catch(e){}});
+})();
+</script>
 <a class="hub-menu" href="https://hawaryou.github.io/HUB-euromed/" aria-label="Ouvrir le menu EuroMed" title="Menu EuroMed">
   <span class="hub-menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
   <span class="hub-menu-label">MENU</span>
