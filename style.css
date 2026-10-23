@@ -105,3 +105,6 @@ html[data-theme="light"] body label,html[data-theme="light"] body p,html[data-th
 html[data-theme="light"] body input:not([type=checkbox]):not([type=radio]),html[data-theme="light"] body select,html[data-theme="light"] body textarea{background:#fff!important;color:#111827!important;border-color:#94a3b8!important}
 html[data-theme="light"] body .section-title{color:#fff!important;background:linear-gradient(90deg,#07577f,#087db5)!important}
 html[data-theme="light"] body .theme-toggle{color:#fff!important;background:linear-gradient(135deg,#123b58,#30245c)!important}
+
+/* Priorité aux fenêtres de dialogue : les commandes de thème ne recouvrent jamais la croix. */
+.theme-toggle{z-index:9000!important}.modal:not(.hidden),#sendModal:not(.hidden){z-index:20000!important}
