@@ -145,3 +145,11 @@ body::before,.app-shell::before{content:none!important;display:none!important;an
 
 /* Bulles désactivées sur tous les écrans */
 body::before,.app-shell::before{content:none!important;display:none!important;animation:none!important;background:none!important;filter:none!important;will-change:auto!important}
+
+/* Mode clair EuroMed : fond pastel plus coloré, sans bulles animées */
+html[data-theme="light"] body{background:linear-gradient(135deg,#d9f2ff 0%,#fff0f6 34%,#eee8ff 68%,#dcf8eb 100%)!important;background-attachment:fixed!important}
+html[data-theme="light"] body .page{background:linear-gradient(150deg,#e7f6ff 0%,#fff2f7 52%,#f1edff 100%)!important;border-color:#b7dce9!important}
+html[data-theme="light"] body .header{background:linear-gradient(120deg,#e1f5ff,#fff0f7,#eee9ff)!important;border-color:#9ed8e8!important}
+html[data-theme="light"] body .recipient-card,html[data-theme="light"] body .delivery-card,html[data-theme="light"] body .delivery-info,html[data-theme="light"] body .receipt,html[data-theme="light"] body .documents-card,html[data-theme="light"] body .section-card,html[data-theme="light"] body .protocol-card{background:linear-gradient(135deg,#f0faff 0%,#fff6fa 58%,#f5f1ff 100%)!important;border-color:#c0dfe9!important}
+html[data-theme="light"] body .table-wrap{background:#f2faff!important;border-color:#b8dbe8!important}
+html[data-theme="light"] body .section-title{background:linear-gradient(90deg,#087db5,#6554df)!important;color:#fff!important}
