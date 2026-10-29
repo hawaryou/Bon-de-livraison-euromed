@@ -163,3 +163,8 @@ html[data-theme="light"] body .section-title{background:linear-gradient(90deg,#0
  .theme-toggle:active{transform:scale(.96)}
 }
 @media print{.theme-toggle{display:none!important}}
+
+
+/* Ajustement final de l'espacement mobile : ne pas cumuler le décalage du body */
+@media(max-width:760px){html body{padding-top:0!important}.page{margin-top:54px!important}}
+@media print{html body{padding-top:0!important}.app-shell{padding-top:0!important}.top,.page{margin-top:0!important;padding-top:0!important}}
