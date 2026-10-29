@@ -125,3 +125,15 @@ html[data-theme="light"] body::before{background-image:radial-gradient(circle at
 
 /* Sur téléphone : couper les bulles animées pour préserver la fluidité */
 @media screen and (max-width: 768px), (hover: none) and (pointer: coarse){body::before,.app-shell::before{content:none!important;display:none!important;animation:none!important;background:none!important;filter:none!important;will-change:auto!important}body,.app-shell{background-attachment:scroll!important}}
+
+
+/* Bulles désactivées sur tous les écrans (ordinateur et téléphone) */
+body::before,
+.app-shell::before {
+  content: none !important;
+  display: none !important;
+  animation: none !important;
+  background: none !important;
+  filter: none !important;
+  will-change: auto !important;
+}
