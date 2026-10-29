@@ -153,3 +153,13 @@ html[data-theme="light"] body .header{background:linear-gradient(120deg,#e1f5ff,
 html[data-theme="light"] body .recipient-card,html[data-theme="light"] body .delivery-card,html[data-theme="light"] body .delivery-info,html[data-theme="light"] body .receipt,html[data-theme="light"] body .documents-card,html[data-theme="light"] body .section-card,html[data-theme="light"] body .protocol-card{background:linear-gradient(135deg,#f0faff 0%,#fff6fa 58%,#f5f1ff 100%)!important;border-color:#c0dfe9!important}
 html[data-theme="light"] body .table-wrap{background:#f2faff!important;border-color:#b8dbe8!important}
 html[data-theme="light"] body .section-title{background:linear-gradient(90deg,#087db5,#6554df)!important;color:#fff!important}
+
+
+/* Mobile: bouton de thème discret et espace réservé pour ne jamais chevaucher les titres */
+@media (max-width:760px){
+ html body{padding-top:54px!important}
+ .theme-toggle{position:fixed!important;top:calc(6px + env(safe-area-inset-top,0px))!important;right:8px!important;z-index:40!important;width:42px!important;height:42px!important;min-width:42px!important;min-height:42px!important;padding:0!important;gap:0!important;border-radius:50%!important;font-size:19px!important;box-shadow:0 2px 8px rgba(10,35,65,.22)!important;opacity:.92}
+ #themeToggleLabel{display:none!important}
+ .theme-toggle:active{transform:scale(.96)}
+}
+@media print{.theme-toggle{display:none!important}}
