@@ -7,6 +7,23 @@ const today = new Date();
 const isoDate = new Date(today.getTime() - today.getTimezoneOffset()*60000).toISOString().slice(0,10);
 const frDate = new Intl.DateTimeFormat('fr-FR').format(today);
 
+function makeDocumentNumber(prefix){
+  const now=new Date();
+  const pad=n=>String(n).padStart(2,'0');
+  const date=pad(now.getDate())+'-'+pad(now.getMonth()+1)+'-'+now.getFullYear();
+  const time=pad(now.getHours())+pad(now.getMinutes())+pad(now.getSeconds());
+  const key='euromed-global-document-sequence-v1';
+  let seq=1;
+  try{seq=(Number(localStorage.getItem(key))||0)+1;localStorage.setItem(key,String(seq));}catch(e){}
+  let random='';
+  try{const bytes=new Uint8Array(4);crypto.getRandomValues(bytes);random=[...bytes].map(b=>b.toString(16).padStart(2,'0')).join('').toUpperCase();}
+  catch(e){random=Math.random().toString(36).slice(2,10).toUpperCase();}
+  return {number:prefix+'/'+date+'/'+time+'/'+String(seq).padStart(4,'0')+'-'+random,dateISO:now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate()),createdAt:now.toISOString()};
+}
+
+const documentIdentity=makeDocumentNumber('BL');
+$('documentNumber').textContent=documentIdentity.number;
+
 $('todayDisplay').textContent = frDate;
 $('dateSignature').value = isoDate;
 
@@ -59,7 +76,7 @@ function collect(){
     serial:tr.querySelector('.serial-input').value.trim()
   })).filter(x=>x.name||x.product||x.serial);
   return {
-    date:isoDate, client:$('client').value.trim(),
+    number:documentIdentity.number, createdAt:documentIdentity.createdAt, date:documentIdentity.dateISO, client:$('client').value.trim(),
     adresse:$('adresse').value.trim(), ville:$('ville').value.trim(), emailClient:$('emailClient').value.trim(),
     reference:$('reference').value.trim(),
     lieuSignature:$('lieuSignature').value.trim(), dateSignature:$('dateSignature').value,
@@ -143,7 +160,7 @@ async function buildPdf(data){
   pdf.setFont('helvetica','bold');pdf.setFontSize(23);pdf.setTextColor(...navy);pdf.text('BON DE LIVRAISON',20,22);
   pdf.setFont('helvetica','normal');pdf.setFontSize(8.5);pdf.setTextColor(...muted);pdf.text('Document de livraison · EuroMed',20,28);
   pdf.setFont('helvetica','bold');pdf.setFontSize(8);pdf.setTextColor(...navy);pdf.text('DATE DU JOUR',20,36);
-  pdf.setFontSize(10);pdf.text(formatDate(data.date),52,36);
+  pdf.setFontSize(10);pdf.text(formatDate(data.date),52,36);pdf.setFontSize(7.5);pdf.text('N° '+data.number,20,41);
   try{const logo=await imageData('euromed-logo.jpeg');pdf.addImage(logo,'JPEG',135,12,61,16);}catch(e){}
   pdf.setFont('helvetica','normal');pdf.setFontSize(7.2);pdf.setTextColor(...muted);
   pdf.text('+33.327.64.34.99',198,31,{align:'right'});pdf.text('www.euromed-materiel-medical.com',198,35,{align:'right'});pdf.text('117 rue de Maubeuge · F-59620 Aulnoye-Aymeries',198,39,{align:'right'});
@@ -196,6 +213,10 @@ async function buildPdf(data){
     y+=64;
   }
 
+  y=ensure(y,22);y=pdfSection(pdf,'REMISE DES DOCUMENTS',y);
+  pdf.setFont('helvetica','normal');pdf.setFontSize(8.2);pdf.setTextColor(...text);
+  pdf.text(data.documentsHandedOver?'☑ Notices, papiers et protocoles remis en mains propres à la personne âgée ou à son représentant':'☐ Notices, papiers et protocoles non remis en mains propres',14,y+2);
+
   pdfFooter(pdf,page);
   return pdf;
 }
@@ -203,7 +224,7 @@ async function buildPdf(data){
 function formatDate(s){if(!s)return '—';const [y,m,d]=s.split('-');return d&&m&&y?`${d}/${m}/${y}`:s}
 function dataUriToBase64(s){return s.split(',')[1]||''}
 async function pdfBase64(data){const pdf=await buildPdf(data);return dataUriToBase64(pdf.output('datauristring'))}
-function filename(data){return `Bon_de_livraison_${(data.client||'EuroMed').replace(/[^a-z0-9_-]/gi,'_')}_${data.date}.pdf`}
+function filename(data){return `Bon_de_livraison_${data.number.replace(/[^a-z0-9-]/gi,'_')}_${(data.client||'EuroMed').replace(/[^a-z0-9_-]/gi,'_')}.pdf`}
 
 function githubApiUrl(){
   const owner=window.GITHUB_OWNER, repo=window.GITHUB_REPO, path=window.GITHUB_DOCUMENTS_PATH||'documents';
