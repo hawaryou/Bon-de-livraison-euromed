@@ -81,7 +81,7 @@ function collect(){
     reference:$('reference').value.trim(),
     lieuSignature:$('lieuSignature').value.trim(), dateSignature:$('dateSignature').value,
     observations:$('observations').value.trim(), lines, signature:signature.toDataURL('image/png'), technicianName:$('technicianName').value.trim(), technicianSignature:technicianSignature.toDataURL('image/png'),
-    destinataireAbsent:$('destinataireAbsent').checked, deliveryPhoto:$('deliveryPhoto').dataset.dataUrl||''
+    destinataireAbsent:$('destinataireAbsent').checked, documentsHandedOver:$('documentsHandedOver').checked, deliveryPhoto:$('deliveryPhoto').dataset.dataUrl||''
   };
 }
 
@@ -215,7 +215,7 @@ async function buildPdf(data){
 
   y=ensure(y,22);y=pdfSection(pdf,'REMISE DES DOCUMENTS',y);
   pdf.setFont('helvetica','normal');pdf.setFontSize(8.2);pdf.setTextColor(...text);
-  pdf.text(data.documentsHandedOver?'☑ Notices, papiers et protocoles remis en mains propres à la personne âgée ou à son représentant':'☐ Notices, papiers et protocoles non remis en mains propres',14,y+2);
+  pdf.text('REMIS EN MAINS PROPRES : '+(data.documentsHandedOver?'OUI':'NON'),14,y+2);pdf.setFont('helvetica','normal');pdf.text('Notices, papiers et protocoles remis à la personne âgée ou à son représentant.',14,y+7);
 
   pdfFooter(pdf,page);
   return pdf;
