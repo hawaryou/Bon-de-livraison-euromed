@@ -215,7 +215,7 @@ async function buildPdf(data){
 
   y=ensure(y,22);y=pdfSection(pdf,'REMISE DES DOCUMENTS',y);
   pdf.setFont('helvetica','normal');pdf.setFontSize(8.2);pdf.setTextColor(...text);
-  pdf.text('REMIS EN MAINS PROPRES : '+(data.documentsHandedOver?'OUI':'NON'),14,y+2);pdf.setFont('helvetica','normal');pdf.text('Notices, papiers et protocoles remis à la personne âgée ou à son représentant.',14,y+7);
+  pdf.text('REMIS EN MAINS PROPRES : '+(data.documentsHandedOver?'OUI':'NON'),14,y+2);pdf.setFont('helvetica','normal');pdf.text('Notices, papiers et protocoles remis à la personne ou à son représentant.',14,y+7);
 
   pdfFooter(pdf,page);
   return pdf;
